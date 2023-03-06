@@ -1,4 +1,5 @@
-import Calendar from "./componants/Calendar.js"
+import Calendar from "./componants/Calendar.js";
+import styles from "./style.module.css";
 
 function App(){
 
@@ -7,7 +8,7 @@ function App(){
 
 
   return (
-    <div>
+    <div className={styles.wrap}>
       <Calendar />
 
     </div>
