@@ -1,16 +1,17 @@
+import Calendar from "./componants/Calendar.js"
+
+function App(){
+
+  
 
 
-import Calendar from "./componants/Calendar.js";
 
-
-
-
-function App() {
   return (
-    <div className="App">
+    <div>
       <Calendar />
+
     </div>
   );
-}
+};
 
 export default App;
