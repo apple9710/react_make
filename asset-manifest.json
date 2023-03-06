@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/react_make/static/js/main.cb2fe522.js",
+    "main.css": "/react_make/static/css/main.fa63dcc1.css",
+    "main.js": "/react_make/static/js/main.1fc5c895.js",
     "index.html": "/react_make/index.html",
-    "main.cb2fe522.js.map": "/react_make/static/js/main.cb2fe522.js.map"
+    "main.fa63dcc1.css.map": "/react_make/static/css/main.fa63dcc1.css.map",
+    "main.1fc5c895.js.map": "/react_make/static/js/main.1fc5c895.js.map"
   },
   "entrypoints": [
-    "static/js/main.cb2fe522.js"
+    "static/css/main.fa63dcc1.css",
+    "static/js/main.1fc5c895.js"
   ]
 }
