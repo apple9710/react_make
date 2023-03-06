@@ -42,10 +42,10 @@ function Calendar(){
     //버튼 클릭시 월 이동
     function nextClick(){
       setPlusMonth(plusMonth + 1)
-    }
+    };
     function prevClick(){
       setPlusMonth(plusMonth - 1)
-    }
+    };
 
 
     let arr = [];
@@ -56,21 +56,21 @@ function Calendar(){
     for(let i = 0; i <oneMonth; i++){
       // 전달 구하는 if문
       if(i < monthStart.getDay()){
-        arr.push(<td key = {i}>{startDate.getDate() +(i)}</td>)
+        arr.push(<td key = {i}>{startDate.getDate() +(i)}</td>);
       }//이번달 구하는 if문
       else if(monthStart.getDay() <= i && i < monthEnd.getDate() + monthStart.getDay() ){
-        arr.push(<td key = {i}>{(i + 1) - monthStart.getDay()}</td>)
+        arr.push(<td key = {i}>{(i + 1) - monthStart.getDay()}</td>);
       }//다음달 구하는 if문
       else if (monthEnd.getDate() + monthStart.getDay() <= i && i < oneMonth ){
-        arr.push(<td key = {i}>{(i + 1) - (monthStart.getDay() + monthEnd.getDate())}</td>)
-      }
+        arr.push(<td key = {i}>{(i + 1) - (monthStart.getDay() + monthEnd.getDate())}</td>);
+      };
       //arr 의 길이가 7 이상이면 row 에 push
       if(arr.length === 7){
         row.push(<tr key={rowIdx}>{arr}</tr>);
         rowIdx++;
         arr = [];
-      }
-    }
+      };
+    };
 
   return (
     <div className={styles.calendar}>
