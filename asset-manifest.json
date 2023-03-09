@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react_make/static/css/main.f7bb9a61.css",
-    "main.js": "/react_make/static/js/main.1fc5c895.js",
+    "main.css": "/react_make/static/css/main.50984980.css",
+    "main.js": "/react_make/static/js/main.3026b70a.js",
     "index.html": "/react_make/index.html",
-    "main.f7bb9a61.css.map": "/react_make/static/css/main.f7bb9a61.css.map",
-    "main.1fc5c895.js.map": "/react_make/static/js/main.1fc5c895.js.map"
+    "main.50984980.css.map": "/react_make/static/css/main.50984980.css.map",
+    "main.3026b70a.js.map": "/react_make/static/js/main.3026b70a.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7bb9a61.css",
-    "static/js/main.1fc5c895.js"
+    "static/css/main.50984980.css",
+    "static/js/main.3026b70a.js"
   ]
 }
