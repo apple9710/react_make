@@ -1,5 +1,11 @@
 import {useState} from 'react';
 import styles from '../style.module.css'
+import Modal from './Modal.js'
+
+
+let schedule = new Map();
+//날짜 담을 변수
+let idx = "";
 
 function Calendar(){
 
@@ -47,6 +53,35 @@ function Calendar(){
       setPlusMonth(plusMonth - 1)
     };
 
+    
+
+
+// 클릭이벤트
+
+    // if 문으로 배열에 같은 날짜가 있는지 여부 확인 후 해당 날짜의 index를 찾고 do에는 해당 index의 맨 뒤에 , 를 붙혀 구분
+    function thisClick(e){
+
+      //해당 날짜 찾기
+      let findIdx = monthStart.getFullYear()+"-" + monthStart.getMonth()+ "-"+ e.target.innerHTML;
+
+      idx = findIdx;
+      
+     if( schedule.has(findIdx)) {
+         // length-> size
+        // let inputStr = schedule.get(findIdx).do.length +findIdx;
+        // schedule.get(findIdx).do.push(inputStr);
+     }
+     else {
+         schedule.set(findIdx, {do : []});
+     }
+
+     showModal();
+
+
+}
+
+
+
 
     let arr = [];
     let row = []; 
@@ -56,13 +91,18 @@ function Calendar(){
     for(let i = 0; i <oneMonth; i++){
       // 전달 구하는 if문
       if(i < monthStart.getDay()){
-        arr.push(<td key = {i}>{startDate.getDate() +(i)}</td>);
+        arr.push(<td className={styles.last_month} key = {i +"prevMonth"}>{startDate.getDate() +(i)}</td>);
       }//이번달 구하는 if문
       else if(monthStart.getDay() <= i && i < monthEnd.getDate() + monthStart.getDay() ){
-        arr.push(<td key = {i}>{(i + 1) - monthStart.getDay()}</td>);
+        arr.push(<td key = {i +"nowMonth"} onClick={(e)=>{
+          thisClick(e);
+
+
+
+        }}>{(i + 1) - monthStart.getDay()}</td>);
       }//다음달 구하는 if문
       else if (monthEnd.getDate() + monthStart.getDay() <= i && i < oneMonth ){
-        arr.push(<td key = {i}>{(i + 1) - (monthStart.getDay() + monthEnd.getDate())}</td>);
+        arr.push(<td key = {i +"nextMonth"}>{(i + 1) - (monthStart.getDay() + monthEnd.getDate())}</td>);
       };
       //arr 의 길이가 7 이상이면 row 에 push
       if(arr.length === 7){
@@ -71,6 +111,15 @@ function Calendar(){
         arr = [];
       };
     };
+
+    // 모달 스테이트
+const [modalOpen, setModalOpen] = useState(false);
+
+// 모달창 노출
+const showModal = () => {
+    setModalOpen(true);
+};
+
 
   return (
     <div className={styles.calendar}>
@@ -88,9 +137,15 @@ function Calendar(){
         </thead>
         <tbody>
             {row}
+            
         </tbody>
       </table>
-
+      {modalOpen && <Modal setModalOpen={setModalOpen} 
+            schedule = {schedule}
+            idx = {idx}
+            />
+            
+            }
     </div>  
   );
 };
